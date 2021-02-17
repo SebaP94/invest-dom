@@ -1,12 +1,6 @@
 import { Flex, Box, Image, Text } from "@chakra-ui/react";
 // import  from "next/image";
-import {
-  List,
-  ListItem,
-  ListIcon,
-  OrderedList,
-  UnorderedList,
-} from "@chakra-ui/react";
+import { List, ListItem } from "@chakra-ui/react";
 import { Link } from "@chakra-ui/react";
 
 export const Header = () => (
@@ -16,11 +10,12 @@ export const Header = () => (
     bg="gray.50"
     justifyContent="space-between"
     alignItems="center"
-    px={16}
+    px={4}
     w="full"
     height="90px"
     borderBottom="1px"
     borderColor="gray.300"
+    maxWidth="1920px"
   >
     <LogoWrapper></LogoWrapper>
     <Nav />
@@ -37,11 +32,15 @@ export const LogoWrapper = () => (
       mr="4"
     />
     <Box height="52px" borderRight="1px solid" borderColor="gray.300" mr="4" />
-    <Box
+    <Link
       display="flex"
       flexDirection="row"
       justifyContent="center"
       alignItems="center"
+      href="/"
+      _hover={{
+        textDecoration: "none",
+      }}
     >
       <Flex
         direction="row"
@@ -56,6 +55,7 @@ export const LogoWrapper = () => (
         </Text>
         <Text color="green.500">Brzozowe</Text>
       </Flex>
+
       <Image
         src="/images/logos/birch.svg"
         alt="me"
@@ -63,7 +63,7 @@ export const LogoWrapper = () => (
         objectFit="contain"
         mr="4"
       />
-    </Box>
+    </Link>
   </Flex>
 );
 
