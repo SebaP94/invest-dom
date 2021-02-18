@@ -10,6 +10,8 @@ export const Container = (props) => {
     <Flex
       direction="column"
       alignItems="center"
+      justifyContent="flex-start"
+      max-width="1920px"
       bg={"gray.50"}
       color={"gray.800"}
       {...props}

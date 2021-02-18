@@ -71,7 +71,6 @@ export const Nav = (props) => (
   <List {...props} display="flex" flexDirection="row">
     <NavItem href="#about">O inwestycji</NavItem>
     <NavItem href="#description">Opis budynków</NavItem>
-    <NavItem href="#location">Lokalizacja</NavItem>
     <NavItem href="#offer">Oferta</NavItem>
   </List>
 );
