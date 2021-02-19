@@ -5,14 +5,24 @@ import { Link } from "@chakra-ui/react";
 
 export const Header = () => (
   <Flex
+    direction={{
+      base: "column",
+      lg: "row",
+    }}
+    height={{
+      base: "unset",
+      lg: 24,
+    }}
     position="fixed"
     zIndex="3"
     bg="gray.50"
     justifyContent="space-between"
     alignItems="center"
-    px={4}
+    px={{
+      base: 2,
+      md: 4,
+    }}
     w="full"
-    height="90px"
     borderBottom="1px"
     borderColor="gray.300"
     maxWidth="1920px"
@@ -23,11 +33,19 @@ export const Header = () => (
 );
 
 export const LogoWrapper = () => (
-  <Flex direction="row" p="4" justify="center" align="center">
+  <Flex
+    direction="row"
+    p={{
+      base: 2,
+      md: 4,
+    }}
+    justify="center"
+    align="center"
+  >
     <Image
       src="/images/logos/dupa.svg"
       alt="me"
-      height="12"
+      height={{ base: "8", md: "14" }}
       objectFit="contain"
       mr="4"
     />
@@ -43,11 +61,11 @@ export const LogoWrapper = () => (
       }}
     >
       <Flex
-        direction="row"
+        direction={{ base: "column", md: "row" }}
         justify="center"
         align="center"
         mr="2"
-        fontSize="3xl"
+        fontSize={{ base: "lg", md: "3xl" }}
         fontWeight="medium"
       >
         <Text color="gray.700" mr="1">
@@ -59,7 +77,7 @@ export const LogoWrapper = () => (
       <Image
         src="/images/logos/birch.svg"
         alt="me"
-        height="14"
+        height={{ base: "10", md: "14" }}
         objectFit="contain"
         mr="4"
       />
@@ -68,7 +86,16 @@ export const LogoWrapper = () => (
 );
 
 export const Nav = (props) => (
-  <List {...props} display="flex" flexDirection="row">
+  <List
+    {...props}
+    display="flex"
+    flexDirection="row"
+    w={{
+      base: "full",
+      md: "unset",
+    }}
+    justifyContent="space-evenly"
+  >
     <NavItem href="#about">O inwestycji</NavItem>
     <NavItem href="#description">Opis budynków</NavItem>
     <NavItem href="#offer">Oferta</NavItem>
@@ -76,7 +103,16 @@ export const Nav = (props) => (
 );
 
 export const NavItem = (props) => (
-  <ListItem p={4}>
-    <Link fontSize="lg" {...props}></Link>
+  <ListItem
+    py={{
+      base: 2,
+      md: 4,
+    }}
+    px={{
+      base: 1,
+      md: 4,
+    }}
+  >
+    <Link fontSize={{ base: "md", sm: "xl" }} {...props}></Link>
   </ListItem>
 );
