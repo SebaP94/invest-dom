@@ -10,10 +10,10 @@ export const Header = () => (
       lg: "row",
     }}
     height={{
-      base: "unset",
+      base: 28,
       lg: 24,
     }}
-    position="fixed"
+    position={{ base: "fixed", md: "fixed" }}
     zIndex="3"
     bg="gray.50"
     justifyContent="space-between"
@@ -22,7 +22,7 @@ export const Header = () => (
       base: 2,
       md: 4,
     }}
-    w="full"
+    w="100vw"
     borderBottom="1px"
     borderColor="gray.300"
     maxWidth="1920px"
@@ -61,7 +61,7 @@ export const LogoWrapper = () => (
       }}
     >
       <Flex
-        direction={{ base: "column", md: "row" }}
+        direction={{ base: "column", sm: "row" }}
         justify="center"
         align="center"
         mr="2"
@@ -113,6 +113,6 @@ export const NavItem = (props) => (
       md: 4,
     }}
   >
-    <Link fontSize={{ base: "md", sm: "xl" }} {...props}></Link>
+    <Link fontSize={{ base: "md", xs: "xl", sm: "xl" }} {...props}></Link>
   </ListItem>
 );

@@ -16,10 +16,28 @@ import {
 } from "@chakra-ui/react";
 
 export const Main = (props) => (
-  <Box direction="column" spacing="1.5rem" width="100%">
-    <Box height="100vh" position="relative">
-      <Box position="absolute" top="48" p="4" pl="16" zIndex="1">
-        <Heading>To może być twój dom</Heading>
+  <Box
+    direction="column"
+    spacing="1.5rem"
+    width="100%"
+    position="relative"
+    top={{ base: 28, md: 24 }}
+  >
+    <Box
+      height={{ base: "100vh", md: "calc(100vh - 6rem)" }}
+      py={12}
+      position="relative"
+    >
+      <Box
+        position={{ base: "relative" }}
+        top={{ base: "unset", lg: 36 }}
+        p="4"
+        pl={{ base: 12, lg: 16 }}
+        zIndex="1"
+      >
+        <Heading fontSize={{ base: 28, lg: "48px" }}>
+          To może być twój dom
+        </Heading>
         <Text mt="1">
           dowiedz się
           <Link color="blue.400" fontWeight="medium" href="#about" mx={1}>
@@ -30,16 +48,17 @@ export const Main = (props) => (
       </Box>
       <Image
         zIndex="0"
-        position="absolute"
+        position={{ base: "relative", lg: "absolute" }}
         src="/images/front.png"
-        height="full"
+        width={{ base: "unset", lg: "100vw" }}
+        height={{ base: "auto", lg: "100vh" }}
+        top={{ base: "unset", lg: 0 }}
         width="full"
-        objectFit="cover"
+        objectFit={{ base: "cover", lg: "cover" }}
       />
     </Box>
     <Box
       id="about"
-      height="100vh"
       py="4"
       px="12"
       display="flex"
@@ -48,25 +67,6 @@ export const Main = (props) => (
       alignItems="center"
       bg="gray.100"
     >
-      <Box mb="12">
-        <Flex direction="row">
-          <Flex
-            direction="row"
-            justify="center"
-            align="center"
-            mr="2"
-            mb="4"
-            fontSize="6xl"
-            fontWeight="medium"
-          >
-            <Text color="gray.700" mr="1">
-              Osiedle
-            </Text>
-            <Text color="green.500">Brzozowe</Text>
-          </Flex>
-          <Image src="/images/logos/birch.svg" alt="me" height="48" ml="8" />
-        </Flex>
-      </Box>
       <Grid
         my="12"
         display="grid"
