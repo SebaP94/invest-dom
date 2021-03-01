@@ -51,7 +51,7 @@ export const Main = (props) => (
         position={{ base: "relative", lg: "absolute" }}
         src="/images/front.png"
         width={{ base: "unset", lg: "100vw" }}
-        height={{ base: "auto", lg: "100vh" }}
+        height={{ base: "auto", lg: "calc(100vh - 6rem" }}
         top={{ base: "unset", lg: 0 }}
         width="full"
         objectFit={{ base: "cover", lg: "cover" }}
