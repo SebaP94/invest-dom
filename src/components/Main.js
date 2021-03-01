@@ -49,7 +49,7 @@ export const Main = (props) => (
       <Image
         zIndex="0"
         position={{ base: "relative", lg: "absolute" }}
-        src="/images/front.png"
+        src="/images/front-opt.png"
         width={{ base: "unset", lg: "100vw" }}
         height={{ base: "auto", lg: "calc(100vh - 6rem)" }}
         top={{ base: "unset", lg: 0 }}
