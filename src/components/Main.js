@@ -15,8 +15,11 @@ import {
   TableCaption,
 } from "@chakra-ui/react";
 
+const yPadding = [8, 16, 24];
+
 export const Main = (props) => (
   <Box
+    as="main"
     direction="column"
     spacing="1.5rem"
     width="100%"
@@ -24,21 +27,24 @@ export const Main = (props) => (
     top={{ base: 28, md: 24 }}
   >
     <Box
-      height={{ base: "unset", md: "calc(100vh - 7rem)" }}
-      py={12}
+      height={{ base: "calc(100vh - 7rem)", md: "calc(100vh - 6rem)" }}
       position="relative"
+      overflow="hidden"
+      pt={{ base: "16", lg: "16" }}
+      display="flex"
+      flexDirection="column"
+      justifyContent="space-between"
     >
       <Box
         position={{ base: "relative" }}
-        top={{ base: "unset", lg: 36 }}
-        p="4"
+        pr="4"
         pl={{ base: 12, lg: 16 }}
         zIndex="1"
       >
-        <Heading fontSize={{ base: 28, lg: "48px" }}>
+        <Heading fontSize={{ base: "2xl", sm: "5xl", lg: "6xl" }}>
           To może być twój dom
         </Heading>
-        <Text mt="1">
+        <Text mt="1" fontSize={{ base: "md", sm: "xl", lg: "2xl" }}>
           dowiedz się
           <Link color="blue.400" fontWeight="medium" href="#about" mx={1}>
             więcej
@@ -51,7 +57,7 @@ export const Main = (props) => (
         position={{ base: "relative", lg: "absolute" }}
         src="/images/front-opt.png"
         width={{ base: "unset", lg: "100vw" }}
-        height={{ base: 72, sm: "60vh", lg: "calc(100vh - 6rem)" }}
+        height={{ base: "60vh", lg: "calc(100vh - 6rem)" }}
         top={{ base: "unset", lg: 0 }}
         width="full"
         margin="center"
@@ -60,7 +66,6 @@ export const Main = (props) => (
     </Box>
     <Box
       id="about"
-      py="4"
       py={{ xs: 24, xl: "unset" }}
       display="flex"
       flexDirection="column"
@@ -129,7 +134,7 @@ export const Main = (props) => (
       id="description"
       direction={{ base: "column" }}
       bg="gray.50"
-      pt={[36]}
+      pt={yPadding}
       px={[8, 16, 24]}
     >
       <EstateItem>
@@ -171,9 +176,8 @@ export const Main = (props) => (
     <Flex
       id="offer"
       direction="column"
-      mb={12}
       bg="gray.50"
-      py={24}
+      py={yPadding}
       px={[8, 16, 24]}
     >
       <CurrentStateOfBuildings></CurrentStateOfBuildings>

@@ -1,4 +1,4 @@
-import { Text } from "@chakra-ui/react";
+import { Text, Flex, Heading } from "@chakra-ui/react";
 import Head from "next/head";
 import { Container } from "../components/Container";
 import { Main } from "../components/Main";
@@ -14,7 +14,15 @@ const Index = () => (
     <Header />
     <Main></Main>
     <Footer>
-      <Text>Next ❤️ Chakra</Text>
+      <Flex direction="column">
+        <Text pb={1} fontSize="xl">
+          InvestDom
+        </Text>
+        <Text pb={0.5}>Andrzej Paduch </Text>
+        <Text pb={0.5}>505 555 555 </Text>
+        <Text pb={0.5}>andrzej.paduch@gmail.com </Text>
+        <Text as="small">&copy; Copyright 2021, Invest Dom</Text>
+      </Flex>
     </Footer>
   </Container>
 );

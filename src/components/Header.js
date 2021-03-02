@@ -5,6 +5,7 @@ import { Link } from "@chakra-ui/react";
 
 export const Header = () => (
   <Flex
+    as="header"
     direction={{
       base: "column",
       lg: "row",
