@@ -10,9 +10,9 @@ export const Header = () => (
       base: "column",
       lg: "row",
     }}
-    height={{
+    minH={{
       base: 28,
-      lg: 24,
+      xl: 24,
     }}
     position={{ base: "fixed", md: "fixed" }}
     zIndex="3"
@@ -38,7 +38,6 @@ export const LogoWrapper = () => (
     direction="row"
     p={{
       base: 2,
-      md: 4,
     }}
     justify="center"
     align="center"
@@ -46,7 +45,7 @@ export const LogoWrapper = () => (
     <Image
       src="/images/logos/dupa.svg"
       alt="me"
-      height={{ base: "8", md: "14" }}
+      height={{ base: "8", lg: "14" }}
       objectFit="contain"
       mr="4"
     />
@@ -66,7 +65,7 @@ export const LogoWrapper = () => (
         justify="center"
         align="center"
         mr="2"
-        fontSize={{ base: "lg", md: "3xl" }}
+        fontSize={{ base: "lg", lg: "2xl" }}
         fontWeight="medium"
       >
         <Text color="gray.700" mr="1">
@@ -107,13 +106,13 @@ export const NavItem = (props) => (
   <ListItem
     py={{
       base: 2,
-      md: 4,
+      lg: 4,
     }}
     px={{
-      base: 1,
+      base: 2,
       md: 4,
     }}
   >
-    <Link fontSize={{ base: "md", xs: "xl", sm: "xl" }} {...props}></Link>
+    <Link fontSize={{ base: "md", xs: "lg", lg: "xl" }} {...props}></Link>
   </ListItem>
 );

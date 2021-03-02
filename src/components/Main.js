@@ -24,13 +24,13 @@ export const Main = (props) => (
     spacing="1.5rem"
     width="100%"
     position="relative"
-    top={{ base: 28, md: 24 }}
+    mt={{ base: 28, md: 24 }}
   >
     <Box
       height={{ base: "calc(100vh - 7rem)", md: "calc(100vh - 6rem)" }}
       position="relative"
       overflow="hidden"
-      pt={{ base: "16", lg: "16" }}
+      pt={16}
       display="flex"
       flexDirection="column"
       justifyContent="space-between"
@@ -38,13 +38,13 @@ export const Main = (props) => (
       <Box
         position={{ base: "relative" }}
         pr="4"
-        pl={{ base: 12, lg: 16 }}
+        pl={{ base: 12, lg: 12, xl: 16 }}
         zIndex="1"
       >
-        <Heading fontSize={{ base: "2xl", sm: "5xl", lg: "6xl" }}>
+        <Heading fontSize={{ base: "2xl", sm: "4xl", lg: "4xl" }}>
           To może być twój dom
         </Heading>
-        <Text mt="1" fontSize={{ base: "md", sm: "xl", lg: "2xl" }}>
+        <Text mt="1" fontSize={{ base: "md", sm: "2xl", lg: "2xl" }}>
           dowiedz się
           <Link color="blue.400" fontWeight="medium" href="#about" mx={1}>
             więcej
@@ -73,9 +73,8 @@ export const Main = (props) => (
       alignItems="center"
     >
       <Grid
-        my={{ base: 6, lg: 12 }}
-        py={{ base: 12, lg: 12 }}
-        px={{ lg: 4 }}
+        py={12}
+        px={6}
         display="grid"
         gridTemplateColumns={{
           base: "1fr",
@@ -140,7 +139,7 @@ export const Main = (props) => (
       <EstateItem>
         <EstateImage src="/images/z_gory.jpg" />
         <EstateText>
-          <Text my={8} fontWeight="medium" fontSize="large">
+          <Text mb={4} fontWeight="medium" fontSize="large">
             Osiedle składa się z 10 domów jednorodzinnych.
           </Text>
           <Text>
@@ -154,7 +153,7 @@ export const Main = (props) => (
       <EstateItem>
         <EstateImage src="/images/ogrod.jpg" />
         <EstateText>
-          <Text my={8} fontWeight="medium" fontSize="large">
+          <Text mb={4} fontWeight="medium" fontSize="large">
             Nowoczosne architektura, najwyzszej jakości materiały w połączeniu z
             solidnym wykonaniem.
           </Text>
@@ -167,7 +166,7 @@ export const Main = (props) => (
       <EstateItem width="full">
         <EstateImage src="/images/wieczor.jpg"></EstateImage>
         <EstateText>
-          <Text width="full" my={8} fontWeight="medium" fontSize="large">
+          <Text width="full" mb={4} fontWeight="medium" fontSize="large">
             Kameralnie połozone w spokojnej okolicy z dala od miejskiego.
           </Text>
         </EstateText>
@@ -188,14 +187,14 @@ const EstateText = (props) => (
   <Flex
     direction="column"
     justify="center"
-    px={4}
+    p={4}
     maxWidth="2xl"
     {...props}
   ></Flex>
 );
 const EstateItem = (props) => (
   <Flex
-    mb={[12, 24, 48]}
+    mb={yPadding}
     direction={{ base: "column", lg: "row" }}
     {...props}
   ></Flex>
@@ -204,8 +203,8 @@ const EstateImage = (props) => (
   <Image
     alt="me"
     objectFit="contain"
-    mr={{ base: "unset", lg: 12 }}
-    width="36rem"
+    mr={{ base: "unset", lg: 6 }}
+    width={{ base: "36rem", lg: "24rem", xl: "36rem" }}
     {...props}
   />
 );
