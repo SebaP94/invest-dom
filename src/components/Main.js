@@ -2,7 +2,7 @@ import { Heading, Box, Text, Image, Link, Flex } from "@chakra-ui/react";
 import { Grid, Icon } from "@chakra-ui/react";
 import { BsFillHouseDoorFill, BsHammer } from "react-icons/bs";
 import { BiLike } from "react-icons/bi";
-import { FaCity } from "react-icons/fa";
+import { FaCity, FaCheck, FaTimes } from "react-icons/fa";
 
 import {
   Table,
@@ -24,7 +24,7 @@ export const Main = (props) => (
     top={{ base: 28, md: 24 }}
   >
     <Box
-      height={{ base: "100vh", md: "calc(100vh - 6rem)" }}
+      height={{ base: "unset", md: "calc(100vh - 7rem)" }}
       py={12}
       position="relative"
     >
@@ -51,34 +51,40 @@ export const Main = (props) => (
         position={{ base: "relative", lg: "absolute" }}
         src="/images/front-opt.png"
         width={{ base: "unset", lg: "100vw" }}
-        height={{ base: "auto", lg: "calc(100vh - 6rem)" }}
+        height={{ base: 72, sm: "60vh", lg: "calc(100vh - 6rem)" }}
         top={{ base: "unset", lg: 0 }}
         width="full"
         margin="center"
-        objectFit={{ base: "cover", lg: "cover" }}
+        objectFit="cover"
       />
     </Box>
     <Box
       id="about"
       py="4"
-      px="12"
+      py={{ xs: 24, xl: "unset" }}
       display="flex"
       flexDirection="column"
       justifyContent="center"
       alignItems="center"
-      bg="gray.100"
     >
       <Grid
-        my="12"
+        my={{ base: 6, lg: 12 }}
+        py={{ base: 12, lg: 12 }}
+        px={{ lg: 4 }}
         display="grid"
-        gridTemplateColumns="repeat(4, 1fr)"
-        gridGap="4"
+        gridTemplateColumns={{
+          base: "1fr",
+          sm: "repeat(2, 1fr)",
+          lg: "repeat(4, 1fr)",
+        }}
+        gridGap={[4, 2, 1]}
+        bg="gray.100"
       >
         <OfferItem>
           <Icon
             as={BsFillHouseDoorFill}
-            w={16}
-            h={16}
+            w={{ base: 8, lg: 16 }}
+            h={{ base: 8, lg: 16 }}
             color="blue.500"
             m={2}
           ></Icon>
@@ -87,25 +93,49 @@ export const Main = (props) => (
         </OfferItem>
 
         <OfferItem>
-          <Icon as={BsHammer} w={16} h={16} color="blue.500" m={2}></Icon>
+          <Icon
+            as={BsHammer}
+            w={{ base: 8, lg: 16 }}
+            h={{ base: 8, lg: 16 }}
+            color="blue.500"
+            m={2}
+          ></Icon>
           Pewny i solidny wykonawca.
         </OfferItem>
         <OfferItem>
-          <Icon as={BiLike} w={16} h={16} color="blue.500" m={2}></Icon>
+          <Icon
+            as={BiLike}
+            w={{ base: 8, lg: 16 }}
+            h={{ base: 8, lg: 16 }}
+            color="blue.500"
+            m={2}
+          ></Icon>
           Spokojna, zielona i dobrze skomunikowana okolica.
         </OfferItem>
 
         <OfferItem>
-          <Icon as={FaCity} w={16} h={16} color="blue.500" m={2}></Icon>
+          <Icon
+            as={FaCity}
+            w={{ base: 8, lg: 16 }}
+            h={{ base: 8, lg: 16 }}
+            color="blue.500"
+            m={2}
+          ></Icon>
           Bliska odległość do Bielska-Białej (ok 12min. samochodem).
         </OfferItem>
       </Grid>
     </Box>
-    <Flex id="description" direction="column" bg="gray.50" pt={36} px={48}>
+    <Flex
+      id="description"
+      direction={{ base: "column" }}
+      bg="gray.50"
+      pt={[36]}
+      px={[8, 16, 24]}
+    >
       <EstateItem>
         <EstateImage src="/images/z_gory.jpg" />
         <EstateText>
-          <Text mb={8} fontWeight="medium" fontSize="large">
+          <Text my={8} fontWeight="medium" fontSize="large">
             Osiedle składa się z 10 domów jednorodzinnych.
           </Text>
           <Text>
@@ -119,7 +149,7 @@ export const Main = (props) => (
       <EstateItem>
         <EstateImage src="/images/ogrod.jpg" />
         <EstateText>
-          <Text mb={8} fontWeight="medium" fontSize="large">
+          <Text my={8} fontWeight="medium" fontSize="large">
             Nowoczosne architektura, najwyzszej jakości materiały w połączeniu z
             solidnym wykonaniem.
           </Text>
@@ -132,7 +162,7 @@ export const Main = (props) => (
       <EstateItem width="full">
         <EstateImage src="/images/wieczor.jpg"></EstateImage>
         <EstateText>
-          <Text width="full" mb={8} fontWeight="medium" fontSize="large">
+          <Text width="full" my={8} fontWeight="medium" fontSize="large">
             Kameralnie połozone w spokojnej okolicy z dala od miejskiego.
           </Text>
         </EstateText>
@@ -143,9 +173,8 @@ export const Main = (props) => (
       direction="column"
       mb={12}
       bg="gray.50"
-      pt={24}
-      pb={12}
-      px={48}
+      py={24}
+      px={[8, 16, 24]}
     >
       <CurrentStateOfBuildings></CurrentStateOfBuildings>
     </Flex>
@@ -160,46 +189,73 @@ const EstateText = (props) => (
     {...props}
   ></Flex>
 );
-const EstateItem = (props) => <Flex mb={48} direction="row" {...props}></Flex>;
+const EstateItem = (props) => (
+  <Flex
+    mb={[12, 24, 48]}
+    direction={{ base: "column", lg: "row" }}
+    {...props}
+  ></Flex>
+);
 const EstateImage = (props) => (
-  <Image alt="me" objectFit="contain" mr="12" width="36rem" {...props} />
+  <Image
+    alt="me"
+    objectFit="contain"
+    mr={{ base: "unset", lg: 12 }}
+    width="36rem"
+    {...props}
+  />
 );
 
 const CurrentStateOfBuildings = () => {
   const data = [
-    { number: 1, price: "495 000", areaOfField: "700m2", state: "dosetępny" },
-    { number: 2, price: "495 000", areaOfField: "700m2", state: "dosetępny" },
-    { number: 3, price: "495 000", areaOfField: "700m2", state: "dosetępny" },
-    { number: 4, price: "495 000", areaOfField: "700m2", state: "dosetępny" },
-    { number: 5, price: "495 000", areaOfField: "700m2", state: "dosetępny" },
-    { number: 6, price: "495 000", areaOfField: "700m2", state: "dosetępny" },
-    { number: 7, price: "495 000", areaOfField: "700m2", state: "dosetępny" },
-    { number: 8, price: "495 000", areaOfField: "700m2", state: "dosetępny" },
-    { number: 9, price: "495 000", areaOfField: "700m2", state: "dosetępny" },
-    { number: 10, price: "495 000", areaOfField: "700m2", state: "dosetępny" },
+    { number: 1, price: "495 000", areaOfField: "700m2", available: true },
+    { number: 2, price: "495 000", areaOfField: "700m2", available: true },
+    { number: 3, price: "495 000", areaOfField: "700m2", available: true },
+    { number: 4, price: "495 000", areaOfField: "700m2", available: true },
+    { number: 5, price: "495 000", areaOfField: "700m2", available: true },
+    { number: 6, price: "495 000", areaOfField: "700m2", available: true },
+    { number: 7, price: "495 000", areaOfField: "700m2", available: true },
+    { number: 8, price: "495 000", areaOfField: "700m2", available: true },
+    { number: 9, price: "495 000", areaOfField: "700m2", available: true },
+    { number: 10, price: "495 000", areaOfField: "700m2", available: true },
   ];
   return (
     <Table variant="simple">
       <Thead>
         <Tr>
-          <Th>Numer budynku</Th>
-          <Th isNumeric>Cena</Th>
-          <Th isNumeric>Powierzchnia działi</Th>
-          <Th textAlign="right">Status</Th>
+          <HeadingCell
+            display={{ base: "table-cell", sm: "none" }}
+          ></HeadingCell>
+          <HeadingCell display={{ base: "none", sm: "table-cell" }}>
+            Numer budynku
+          </HeadingCell>
+          <HeadingCell isNumeric>Cena</HeadingCell>
+          <HeadingCell
+            display={{ base: "table-cell", sm: "none" }}
+          ></HeadingCell>
+          <HeadingCell
+            display={{ base: "none", sm: "table-cell" }}
+            textAlign="right"
+          >
+            Powierzchcia działki
+          </HeadingCell>
+          <HeadingCell textAlign="right">Status</HeadingCell>
         </Tr>
       </Thead>
       <Tbody>
-        {data.map(({ number, price, areaOfField, state }) => (
+        {data.map(({ number, price, areaOfField, available }) => (
           <Tr key={number}>
-            <Td>{number}</Td>
-            <Td isNumeric>{price} zł</Td>
-            <Td isNumeric>{areaOfField}</Td>
-            <Td
-              textAlign="right"
-              color={state === "dostepny" ? "red.500" : "green.500"}
-            >
-              {state}
-            </Td>
+            <Cell p={2}>{number}</Cell>
+            <Cell isNumeric>{price} zł</Cell>
+            <Cell isNumeric>{areaOfField}</Cell>
+            <Cell textAlign="right" color={available ? "green.500" : "red.500"}>
+              <Icon
+                as={available ? FaCheck : FaTimes}
+                w={{ base: 6, lg: 8 }}
+                h={{ base: 6, lg: 8 }}
+                m={2}
+              ></Icon>
+            </Cell>
           </Tr>
         ))}
       </Tbody>
@@ -207,10 +263,14 @@ const CurrentStateOfBuildings = () => {
   );
 };
 
+const Cell = (props) => <Td p={{ base: 2, sm: 4 }} {...props}></Td>;
+
+const HeadingCell = (props) => <Th p={{ base: 2, sm: 4 }} {...props}></Th>;
+
 const OfferItem = (props) => (
   <Box
     {...props}
-    fontSize="2xl"
+    fontSize={{ base: "md", lg: "xl" }}
     fontWeight="medium"
     display="flex"
     flexDirection="column"
